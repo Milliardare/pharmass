@@ -102,7 +102,7 @@ self.addEventListener("fetch", (event) => {
         .catch(() => {
           // Si hors-ligne et fichier HTML demandé, retourne offline.html
           if (event.request.mode === "navigate") {
-            return caches.match("/offline.html");
+            return caches.match("offline.html");
           }
         });
     })
