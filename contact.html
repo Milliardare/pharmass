@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parler à un pharmacien – Contact Pharmas</title>
+
+<meta name="description" content="Contactez un pharmacien partenaire avec Pharmas. Assistance par WhatsApp ou téléphone pour vos commandes de médicaments au Gabon.">
+
+<meta name="keywords" content="
+parler à un pharmacien,
+contact pharmacien WhatsApp,
+pharmacie assistance Gabon,
+contact Pharmas
+pharmas,
+médicaments en ligne Gabon,
+acheter médicaments en ligne,
+pharmacie en ligne Gabon,
+parapharmacie Gabon,
+livraison médicaments Libreville,
+livraison médicaments Port-Gentil,
+livraison médicaments Akanda,
+parler à un pharmacien,
+contact pharmacien WhatsApp,
+pharmacie de garde Libreville,
+commande médicaments en ligne,
+pharmacie proche de moi Gabon,
+médicaments livraison rapide,
+pharmacie partenaire Gabon
+">
+<!-- Open Graph (WhatsApp / Facebook) -->
+<meta property="og:title" content="Pharmas – Médicaments & Pharmacies au Gabon">
+<meta property="og:description" content="Commandez vos médicaments en ligne. Contactez un pharmacien et choisissez entre retrait en pharmacie ou livraison à domicile au Gabon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://milliardare.github.io/pharmass/">
+<meta property="og:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pharmas – Pharmacies & Médicaments en ligne">
+<meta name="twitter:description" content="Pharmas vous connecte aux pharmacies partenaires au Gabon. Commande, retrait en pharmacie ou livraison.">
+<meta name="twitter:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/logo-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <header>
+    <h1>Contact</h1>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <div class="icon">
+        <span>📧</span>
+      </div>
+
+      <h2>Nous contacter</h2>
+
+      <p>
+        Pharmas vous permet de contacter facilement notre équipe pour toutes questions sur vos commandes, pharmacies partenaires ou informations générales. 
+        Nous facilitons la communication via WhatsApp, téléphone ou email.
+      </p>
+
+      <div class="contact-info">
+        <p>📧 Email: <strong>pharmasgabon@gmail.com</strong></p>
+        <p>📞 Téléphone: <strong>+241074224966</strong></p>
+      </div>
+
+      <div class="buttons-row">
+        <button id="whatsappBtn">💬 Contacter via WhatsApp</button>
+        <button id="callBtn">📞 Appeler</button>
+      </div>
+
+      <div class="footer-note">
+        Pharmas est un pont entre les clients et les pharmacies. Nous ne donnons pas de conseils médicaux, les pharmacies partenaires restent responsables des prescriptions et recommandations.
+      </div>
+    </div>
+  </main>
+
+  <script src="js/contact.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+        .then(() => console.log("Service Worker registered."))
+        .catch((err) => console.log("Service Worker failed:", err));
+    }
+  </script>
+  
+</body>
+</html>

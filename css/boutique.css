@@ -1,0 +1,284 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #222;
+}
+
+/* HEADER */
+.shop-header {
+  background: linear-gradient(135deg, #1c962c, #25c03a);
+  color: white;
+  text-align: center;
+  padding: 26px 16px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.shop-header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.shop-header p {
+  margin-top: 6px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* SEARCH */
+.search-section {
+  padding: 16px;
+}
+
+.search-section input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: none;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 14px;
+}
+
+/* CATEGORIES */
+.categories {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.category-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #e9ecef;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-btn.selected {
+  background: #25c03a;
+  color: white;
+}
+
+/* PRODUCTS GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 16px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.product-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.product-card p {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1c962c;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.modal-content {
+  background: white;
+  width: 90%;
+  max-width: 380px;
+  margin: 20% auto;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 10px;
+}
+
+.modal-content h3 {
+  margin: 10px 0 6px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  color: #555;
+}
+
+.modal-content button {
+  margin-top: 14px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 16px;
+  border: none;
+  background: #25c03a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+
+
+
+  /* 
+.search-container {
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .search-container input {
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+  }
+  
+  /* Catégories 
+  .categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  
+  .category-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #eee;
+    font-weight: bold;
+  }
+  
+  .category-btn.selected {
+    background-color: #259c3a;
+    color: white;
+  }
+  
+  /* Grille produits 
+  .products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 0 12px;
+  }
+  
+  .product-card {
+    width: calc(50% - 24px);
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.05);
+    cursor: pointer;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+  }
+  
+  .product-card p {
+    text-align: center;
+    font-weight: 600;
+    color: #1e682b;
+    padding: 8px 0;
+    margin: 0;
+  }
+  
+  /* Modal 
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .modal-content img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    font-size: 28px;
+    cursor: pointer;
+    color: red;
+  }
+  
+  .modal-content button {
+    padding: 12px 24px;
+    background-color: rgb(37,192,58);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+  

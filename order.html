@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commander et récupérer des médicaments en pharmacie – Pharmas</title>
+
+<meta name="description" content="Passez votre commande de médicaments avec Pharmas. Contactez un pharmacien, commandez et récupérez en pharmacie ou choisissez la livraison à domicile au Gabon.">
+
+<meta name="keywords" content="
+commander médicaments Gabon,
+commande pharmacie en ligne,
+retrait en pharmacie Gabon,
+commande et récupération pharmacie,
+livraison médicaments Gabon,
+parler à un pharmacien
+pharmas,
+médicaments en ligne Gabon,
+acheter médicaments en ligne,
+pharmacie en ligne Gabon,
+parapharmacie Gabon,
+livraison médicaments Libreville,
+livraison médicaments Port-Gentil,
+livraison médicaments Akanda,
+parler à un pharmacien,
+contact pharmacien WhatsApp,
+pharmacie de garde Libreville,
+commande médicaments en ligne,
+pharmacie proche de moi Gabon,
+médicaments livraison rapide,
+pharmacie partenaire Gabon
+">
+<!-- Open Graph (WhatsApp / Facebook) -->
+<meta property="og:title" content="Pharmas – Médicaments & Pharmacies au Gabon">
+<meta property="og:description" content="Commandez vos médicaments en ligne. Contactez un pharmacien et choisissez entre retrait en pharmacie ou livraison à domicile au Gabon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://milliardare.github.io/pharmass/">
+<meta property="og:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pharmas – Pharmacies & Médicaments en ligne">
+<meta name="twitter:description" content="Pharmas vous connecte aux pharmacies partenaires au Gabon. Commande, retrait en pharmacie ou livraison.">
+<meta name="twitter:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/logo-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+
+  <header>
+    <h1>Formulaire de commande</h1>
+  </header>
+
+  <main>
+    <form id="orderForm">
+      <p>
+        PHARMAS est un pont entre vous et les pharmacies partenaires.<br>
+        Nous transmettons vos commandes et organisons la livraison.<br>
+        ⚠️ Nous ne donnons pas de conseils pharmaceutiques officiels.
+      </p>
+
+      <label>Nom</label>
+      <input type="text" id="nom" placeholder="Ex: moussavou" required>
+
+      <label>Prénom</label>
+      <input type="text" id="prenom" placeholder="Ex: milliard" required>
+
+      <label>Téléphone</label>
+      <input type="tel" id="tel" placeholder="+241 06543210" required>
+
+      <label>Pharmacie sélectionnée</label>
+      <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required>
+
+      <label>Lieu de livraison (facultatif si récupération)</label>
+      <input type="text" id="lieu" placeholder="Ex: Quartier Avorbam,derriere les tsanguettes,a cote du boutiquier">
+
+      <h3>Options de commande (vous pouvez en choisir plusieurs) :</h3>
+      <label><input type="checkbox" id="optionNomMed"> J’ai le nom du médicament</label>
+      <div id="medicamentDiv" style="display:none;">
+        <input type="text" id="medicament" placeholder="Nom du médicament">
+      </div>
+
+      <label><input type="checkbox" id="optionOrdonnance"> J’ai une ordonnance (envoyer via WhatsApp)</label>
+
+      <label><input type="checkbox" id="optionConseil"> Je souhaite un conseil du pharmacien</label>
+      <div id="symptomesDiv" style="display:none;">
+        <textarea id="symptomes" placeholder="Décrivez vos symptômes"></textarea>
+      </div>
+
+      <label><input type="checkbox" id="optionRecupSelf"> Je souhaite récupérer moi-même à la pharmacie</label>
+
+      <div class="buttons-row">
+        <button type="button" id="callBtn">📞 Appeler</button>
+        <button type="button" id="whatsappBtn">💬 WhatsApp</button>
+      </div>
+
+      <button type="submit" id="submitBtn">Confirmer la commande</button>
+    </form>
+  </main>
+
+  <script src="js/order.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+        .then(() => console.log("Service Worker registered."))
+        .catch((err) => console.log("Service Worker failed:", err));
+    }
+  </script>
+  
+</body>
+</html>

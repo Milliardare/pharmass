@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Pharmacies au Gabon – Commander et récupérer en pharmacie ou Livraison a domicile,| Pharmas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+   <!-- SEO -->
+   <meta name="description" content="Trouvez une pharmacie partenaire avec Pharmas. Commandez vos médicaments en ligne et récupérez-les directement en pharmacie ou choisissez la livraison à domicile au Gabon.">
+
+   <meta name="keywords" content="
+   pharmacies au Gabon,
+   pharmacie Libreville,
+   pharmacie Port-Gentil,
+   pharmacie Akanda,
+   commander médicaments en pharmacie,
+   commande et retrait en pharmacie,
+   retrait en pharmacie Gabon,
+   pharmacies partenaires Gabon,
+   parler à un pharmacien,
+   Pharmas
+   ">
+ 
+   <meta name="author" content="Pharmas - MT Partner Invest">
+   <meta name="robots" content="index, follow">
+
+   <!-- Open Graph (WhatsApp / Facebook) -->
+<meta property="og:title" content="Pharmas – Médicaments & Pharmacies au Gabon">
+<meta property="og:description" content="Commandez vos médicaments en ligne. Contactez un pharmacien et choisissez entre retrait en pharmacie ou livraison à domicile au Gabon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://milliardare.github.io/pharmass/">
+<meta property="og:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pharmas – Pharmacies & Médicaments en ligne">
+<meta name="twitter:description" content="Pharmas vous connecte aux pharmacies partenaires au Gabon. Commande, retrait en pharmacie ou livraison.">
+<meta name="twitter:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+   <link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/logo-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/pharmacies.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <h1>Pharmacies proches</h1>
+    <p>Trouvez une pharmacie partenaire rapidement</p>
+  </header>
+
+  <!-- SEARCH -->
+  <div class="search-bar">
+    <input 
+      type="text" 
+      id="searchInput" 
+      placeholder="🔍 Rechercher une pharmacie..."
+      onkeyup="filterPharmacies()"
+    >
+  </div>
+
+  <!-- LIST -->
+  <section class="pharmacy-list" id="pharmacyList"></section>
+
+  <!-- BOTTOM ACTIONS -->
+  <nav class="bottom-buttons">
+    <button class="bottom-btn blue" onclick="navigate('boutique.html')">
+      🏬 Boutique
+    </button>
+    <button class="bottom-btn green" onclick="navigate('order.html')">
+      🚚 Commander
+    </button>
+  </nav>
+
+  <!-- MODAL -->
+  <div id="pharmacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/pharmacies.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+        .then(() => console.log("Service Worker registered."))
+        .catch((err) => console.log("Service Worker failed:", err));
+    }
+  </script>
+  
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmas - Pharmacies</title>
+  <link rel="stylesheet" href="css/pharmacies.css">
+</head>
+<body>
+
+  <header>
+    <h1>Pharmacies à proximité</h1>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Rechercher une pharmacie..." onkeyup="filterPharmacies()">
+  </div>
+
+  <div class="pharmacy-list" id="pharmacyList">
+    Les pharmacies seront générées ici 
+  </div>
+
+  <div class="bottom-buttons">
+    <button class="bottom-btn blue-btn" onclick="navigate('boutique.html')">🏬 Boutique</button>
+    <button class="bottom-btn red-btn" onclick="navigate('order.html')">🚚 Livraison</button>
+  </div>
+
+  <!-- Popup modal 
+  <div id="pharmacyModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/pharmacies.js"></script>
+</body>
+</html> -->

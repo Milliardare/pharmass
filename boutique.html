@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Acheter des médicaments en ligne au Gabon – Pharmas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Achetez vos médicaments et produits de parapharmacie en ligne avec Pharmas. Commandez, contactez une pharmacie partenaire et récupérez en pharmacie ou faites-vous livrer.">
+
+<meta name="keywords" content="
+acheter médicaments en ligne Gabon,
+parapharmacie Gabon,
+boutique médicaments Gabon,
+commande médicaments en ligne,
+retrait pharmacie,
+livraison médicaments
+pharmas,
+médicaments en ligne Gabon,
+acheter médicaments en ligne,
+pharmacie en ligne Gabon,
+parapharmacie Gabon,
+livraison médicaments Libreville,
+livraison médicaments Port-Gentil,
+livraison médicaments Akanda,
+parler à un pharmacien,
+contact pharmacien WhatsApp,
+pharmacie de garde Libreville,
+commande médicaments en ligne,
+pharmacie proche de moi Gabon,
+médicaments livraison rapide,
+pharmacie partenaire Gabon
+">
+
+<!-- Open Graph (WhatsApp / Facebook) -->
+<meta property="og:title" content="Pharmas – Médicaments & Pharmacies au Gabon">
+<meta property="og:description" content="Commandez vos médicaments en ligne. Contactez un pharmacien et choisissez entre retrait en pharmacie ou livraison à domicile au Gabon.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://milliardare.github.io/pharmass/">
+<meta property="og:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pharmas – Pharmacies & Médicaments en ligne">
+<meta name="twitter:description" content="Pharmas vous connecte aux pharmacies partenaires au Gabon. Commande, retrait en pharmacie ou livraison.">
+<meta name="twitter:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="img/logo-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/boutique.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="shop-header">
+    <h1>Boutique Pharmas</h1>
+    <p>Trouvez rapidement vos produits de santé</p>
+  </header>
+
+  <!-- SEARCH + CATEGORIES -->
+  <section class="search-section">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="🔍 Rechercher un produit..."
+      onkeyup="renderProducts()"
+    />
+
+    <div class="categories" id="categoryContainer"></div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="products-grid" id="productsGrid"></section>
+
+  <!-- MODAL -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/boutique.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js")
+        .then(() => console.log("Service Worker registered."))
+        .catch((err) => console.log("Service Worker failed:", err));
+    }
+  </script>
+  
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boutique Pharmas</title>
+  <link rel="stylesheet" href="css/boutique.css">
+</head>
+<body>
+
+  <header>
+    <h1>Boutique Pharmas</h1>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Rechercher un produit..." onkeyup="filterProducts()">
+    <div class="categories" id="categoryContainer">
+      <!-- Boutons catégories seront générés ici 
+    </div>
+  </div>
+
+  <div class="products-grid" id="productsGrid">
+    <!-- Produits seront générés ici 
+  </div>
+
+  <!-- Popup modal produit 
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/boutique.js"></script>
+</body>
+</html> -->

@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #222;
+}
+
+/* HEADER */
+.top-header {
+  background: linear-gradient(135deg, #1c962c, #25c03a);
+  color: white;
+  text-align: center;
+  padding: 18px;
+}
+
+.top-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.top-header span {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 45vh;
+  margin: 14px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(131, 126, 126, 0.4), transparent);
+}
+
+.floating {
+  position: absolute;
+  bottom: 14px;
+  animation: float 3s ease-in-out infinite alternate;
+}
+
+.floating-left {
+  left: 14px;
+  width: 70px;
+}
+
+.floating-right {
+  right: 14px;
+  width: 90px;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
+
+/* CONTENT */
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+.tagline {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 28px;
+}
+
+.features li {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* BUTTONS */
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.btn {
+  padding: 16px;
+  border-radius: 18px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #25c03a;
+  color: white;
+}
+
+.btn.secondary {
+  background: #3fa7e2;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* LINKS */
+.links {
+  margin: 28px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.links button {
+  background: none;
+  border: 1px solid #bbb;
+  padding: 10px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+/* REVIEWS */
+.reviews {
+  margin-top: 30px;
+}
+
+.reviews h2 {
+  font-size: 20px;
+  color: #1c962c;
+  margin-bottom: 16px;
+}
+
+.review-card {
+  background: white;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.stars {
+  color: gold;
+  font-size: 18px;
+  margin: 4px 0;
+}
+
+.review-card p {
+  font-size: 14px;
+  color: #555;
+}
+/* Resserrement texte */
+.tagline.compact {
+  margin-bottom: 10px;
+  line-height: 1.00;
+}
+
+.features.compact {
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.features.compact li {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Bouton WhatsApp */
+.btn.whatsapp {
+  background: #3b9e01;
+  color: white;
+}
+/* Barre d'installation en haut */
+.install-banner {
+  width: 100%;
+  background-color: #25c03a;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+
+
+
+
+
+/* body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: white;
+    color: #333;
+    text-align: center;
+  }
+  
+  header h1 {
+    background-color: rgb(37,192,58);
+    color: white;
+    padding: 15px 0;
+    margin: 0;
+    font-size: 22px;
+  }
+  
+  .main-image {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    margin-top: 10px;
+  }
+  
+  .background-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+  
+  .float-img {
+    position: absolute;
+    bottom: 12px;
+    height: auto;
+    transition: transform 3s ease-in-out;
+    animation: float 3s infinite alternate;
+  }
+  
+  .float-left {
+    left: 12px;
+    height: 60px;
+  }
+  
+  .float-right {
+    right: 12px;
+    height: 80px;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: rgba(0,0,0,0.6);
+    line-height: 1.4;
+    margin-bottom: 35px;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .main-btn {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  
+  .green-btn { background-color: rgb(37,192,58); }
+  .blue-btn { background-color: rgb(64,167,226); }
+  
+  .footer-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .outline-btn {
+    font-size: 16px;
+    padding: 12px 20px;
+    border: 1px solid #555;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(34,112,54);
+    margin-top: 40px;
+  }
+  
+  .reviews {
+    margin-top: 16px;
+  }
+  
+  .review {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    padding: 14px;
+    margin: 8px 0;
+    text-align: left;
+  }
+  
+  .review-name {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  
+  .stars {
+    color: gold;
+    font-size: 18px;
+    margin: 4px 0;
+  }
+  
+  .review-message {
+    font-size: 14px;
+  }
+   */
