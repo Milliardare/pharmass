@@ -4,10 +4,21 @@
   <meta charset="UTF-8">
   <title>Pharmas - Hors ligne</title>
   <link rel="stylesheet" href="css/welcome.css">
+  <link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#25c03a">
+
 </head>
 <body>
   <h1>Pharmas</h1>
   <p>Vous êtes hors-ligne. Veuillez vérifier votre connexion Internet ou réessayer plus tard.</p>
-  
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("Service Worker registered."))
+      .catch((err) => console.log("Service Worker failed:", err));
+  }
+</script>
+
 </body>
 </html>

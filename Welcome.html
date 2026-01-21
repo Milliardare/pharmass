@@ -48,7 +48,9 @@ pharmacie partenaire Gabon
 <meta name="twitter:description" content="Pharmas vous connecte aux pharmacies partenaires au Gabon. Commande, retrait en pharmacie ou livraison.">
 <meta name="twitter:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
 
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#25c03a">
+
 <link rel="apple-touch-icon" href="img/logo-192.png">
 
   <!-- Google Font -->
@@ -147,11 +149,12 @@ pharmacie partenaire Gabon
   <script src="js/welcome.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
+      navigator.serviceWorker.register("./service-worker.js")
         .then(() => console.log("Service Worker registered."))
         .catch((err) => console.log("Service Worker failed:", err));
     }
   </script>
+  
   
 </body>
 </html>

@@ -37,8 +37,9 @@
 <meta name="twitter:title" content="Pharmas – Pharmacies & Médicaments en ligne">
 <meta name="twitter:description" content="Pharmas vous connecte aux pharmacies partenaires au Gabon. Commande, retrait en pharmacie ou livraison.">
 <meta name="twitter:image" content="https://milliardare.github.io/pharmass/img/logo-512.png">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#25c03a">
 
-   <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="img/logo-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
@@ -93,11 +94,12 @@
   <script src="js/pharmacies.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
+      navigator.serviceWorker.register("./service-worker.js")
         .then(() => console.log("Service Worker registered."))
         .catch((err) => console.log("Service Worker failed:", err));
     }
   </script>
+  
   
 </body>
 </html>
