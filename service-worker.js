@@ -78,19 +78,35 @@ self.addEventListener("activate", (event) => {
   );
   self.clients.claim();
 });
-
 // FETCH
 self.addEventListener("fetch", (event) => {
+  // Pour les pages HTML (navigation)
+  if (event.request.mode === "navigate") {
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match("./offline.html"))
+    );
+    return;
+  }
+
+  // Pour les autres fichiers (CSS, JS, images)
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request).catch(() => {
-        if (event.request.mode === "navigate") {
-          return caches.match("./offline.html");
-        }
-      });
-    })
+    caches.match(event.request).then((response) => response || fetch(event.request))
   );
 });
+
+
+// // FETCH
+// self.addEventListener("fetch", (event) => {
+//   event.respondWith(
+//     caches.match(event.request).then((response) => {
+//       return response || fetch(event.request).catch(() => {
+//         if (event.request.mode === "navigate") {
+//           return caches.match("./offline.html");
+//         }
+//       });
+//     })
+//   );
+// });
 
 
 
