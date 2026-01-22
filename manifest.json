@@ -1,7 +1,8 @@
 {
   "name": "PHARMAS",
   "short_name": "PHARMAS",
-  "start_url": "./welcome.html",
+  "start_url": "./index.html",
+
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
