@@ -90,14 +90,21 @@ pharmacie partenaire Gabon
 
   <!-- JS -->
   <script src="js/boutique.js"></script>
-  <script>
+  <!-- <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./service-worker.js")
         .then(() => console.log("Service Worker registered."))
         .catch((err) => console.log("Service Worker failed:", err));
     }
   </script>
-  
+   -->
+   <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pharmass/service-worker.js")
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.error("SW error", err));
+    }
+  </script>
   
 </body>
 </html>

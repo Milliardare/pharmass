@@ -1,6 +1,11 @@
+// function navigate(page) {
+//   window.location.href = page;
+// }
+
 function navigate(page) {
-  window.location.href = page;
+  window.location.href = "/pharmass/" + page;
 }
+
 function openPharmacien() {
   const numero = "241074224966"; // ton numéro
   const message = encodeURIComponent(

@@ -1,9 +1,9 @@
 {
   "name": "PHARMAS",
   "short_name": "PHARMAS",
-  "start_url": "./index.html",
-
-  "scope": "./",
+  "start_url": "/pharmass/index.html",
+  "scope": "/pharmass/",
+  
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#25c03a",
