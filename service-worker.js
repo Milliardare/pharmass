@@ -1,91 +1,79 @@
 // ================================
-// PHARMAS – SERVICE WORKER (GITHUB PAGES)
-// Repo : /pharmass/
+// PHARMAS – SERVICE WORKER (OK)
 // ================================
 
-// Version du cache
-const CACHE_NAME = "pharmas-v2";
+const CACHE_NAME = "pharmas-v3";
 
-// Tous les fichiers à mettre en cache
 const FILES_TO_CACHE = [
-  // HTML
-  "/pharmass/",
-  "/pharmass/index.html",
-  "/pharmass/welcome.html",
-  "/pharmass/about.html",
-  "/pharmass/boutique.html",
-  "/pharmass/order.html",
-  "/pharmass/pharmacies.html",
-  "/pharmass/contact.html",
-  "/pharmass/offline.html",
+  "./",
+  "./index.html",
+  "./welcome.html",
+  "./about.html",
+  "./boutique.html",
+  "./order.html",
+  "./pharmacies.html",
+  "./contact.html",
+  "./offline.html",
 
   // CSS
-  "/pharmass/css/welcome.css",
-  "/pharmass/css/pharmacies.css",
-  "/pharmass/css/about.css",
-  "/pharmass/css/boutique.css",
-  "/pharmass/css/contact.css",
-  "/pharmass/css/order.css",
+  "./css/welcome.css",
+  "./css/pharmacies.css",
+  "./css/about.css",
+  "./css/boutique.css",
+  "./css/contact.css",
+  "./css/order.css",
 
   // JS
-  "/pharmass/js/main.js",
-  "/pharmass/js/welcome.js",
-  "/pharmass/js/pharmacies.js",
-  "/pharmass/js/about.js",
-  "/pharmass/js/boutique.js",
-  "/pharmass/js/contact.js",
-  "/pharmass/js/order.js",
+  "./js/main.js",
+  "./js/welcome.js",
+  "./js/pharmacies.js",
+  "./js/about.js",
+  "./js/boutique.js",
+  "./js/contact.js",
+  "./js/order.js",
 
-  // Images principales
-  "/pharmass/img/logo-192.png",
-  "/pharmass/img/logo-512.png",
-  "/pharmass/img/servente.jpg",
-  "/pharmass/img/para.jpg",
-  "/pharmass/img/moto.jpg",
+  // Images
+  "./img/logo-192.png",
+  "./img/logo-512.png",
+  "./img/servente.jpg",
+  "./img/para.jpg",
+  "./img/moto.jpg",
 
   // Médicaments
-  "/pharmass/img/medicaments/paracetamol.jpg",
-  "/pharmass/img/medicaments/ibuprofene.jpg",
-  "/pharmass/img/medicaments/sirop-toux.jpg",
-  "/pharmass/img/medicaments/sirop-enfant.jpg",
-  "/pharmass/img/medicaments/creme-dermique.jpg",
-  "/pharmass/img/medicaments/pommade.jpg",
-  "/pharmass/img/medicaments/gel-hydroalcoolique.jpg",
-  "/pharmass/img/medicaments/savon-antiseptique.jpg",
-  "/pharmass/img/medicaments/vitamine-c.jpg",
-  "/pharmass/img/medicaments/multivitamines.jpg",
-  "/pharmass/img/medicaments/thermometre.jpg",
-  "/pharmass/img/medicaments/couche-bebe.jpg",
-  "/pharmass/img/medicaments/lait-infantile.jpg",
-  "/pharmass/img/medicaments/bandes-compresses.jpg",
-  "/pharmass/img/medicaments/brosse-dents.jpg",
-  "/pharmass/img/medicaments/dentifrice.jpg",
-  "/pharmass/img/medicaments/fer-acide-folique.jpg"
+  "./img/medicaments/paracetamol.jpg",
+  "./img/medicaments/ibuprofene.jpg",
+  "./img/medicaments/sirop-toux.jpg",
+  "./img/medicaments/sirop-enfant.jpg",
+  "./img/medicaments/creme-dermique.jpg",
+  "./img/medicaments/pommade.jpg",
+  "./img/medicaments/gel-hydroalcoolique.jpg",
+  "./img/medicaments/savon-antiseptique.jpg",
+  "./img/medicaments/vitamine-c.jpg",
+  "./img/medicaments/multivitamines.jpg",
+  "./img/medicaments/thermometre.jpg",
+  "./img/medicaments/couche-bebe.jpg",
+  "./img/medicaments/lait-infantile.jpg",
+  "./img/medicaments/bandes-compresses.jpg",
+  "./img/medicaments/brosse-dents.jpg",
+  "./img/medicaments/dentifrice.jpg",
+  "./img/medicaments/fer-acide-folique.jpg"
 ];
 
 // INSTALL
 self.addEventListener("install", (event) => {
-  console.log("[SW] Install");
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(FILES_TO_CACHE);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
   );
   self.skipWaiting();
 });
 
 // ACTIVATE
 self.addEventListener("activate", (event) => {
-  console.log("[SW] Activate");
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys.map((key) => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
-      )
+      Promise.all(keys.map((key) => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      }))
     )
   );
   self.clients.claim();
@@ -95,16 +83,124 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      if (response) return response;
-
-      return fetch(event.request).catch(() => {
+      return response || fetch(event.request).catch(() => {
         if (event.request.mode === "navigate") {
-          return caches.match("/pharmass/offline.html");
+          return caches.match("./offline.html");
         }
       });
     })
   );
 });
+
+
+
+// // ================================
+// // PHARMAS – SERVICE WORKER (GITHUB PAGES)
+// // Repo : /pharmass/
+// // ================================
+
+// // Version du cache
+// const CACHE_NAME = "pharmas-v2";
+
+// // Tous les fichiers à mettre en cache
+// const FILES_TO_CACHE = [
+//   // HTML
+//   "/pharmass/",
+//   "/pharmass/index.html",
+//   "/pharmass/welcome.html",
+//   "/pharmass/about.html",
+//   "/pharmass/boutique.html",
+//   "/pharmass/order.html",
+//   "/pharmass/pharmacies.html",
+//   "/pharmass/contact.html",
+//   "/pharmass/offline.html",
+
+//   // CSS
+//   "/pharmass/css/welcome.css",
+//   "/pharmass/css/pharmacies.css",
+//   "/pharmass/css/about.css",
+//   "/pharmass/css/boutique.css",
+//   "/pharmass/css/contact.css",
+//   "/pharmass/css/order.css",
+
+//   // JS
+//   "/pharmass/js/main.js",
+//   "/pharmass/js/welcome.js",
+//   "/pharmass/js/pharmacies.js",
+//   "/pharmass/js/about.js",
+//   "/pharmass/js/boutique.js",
+//   "/pharmass/js/contact.js",
+//   "/pharmass/js/order.js",
+
+//   // Images principales
+//   "/pharmass/img/logo-192.png",
+//   "/pharmass/img/logo-512.png",
+//   "/pharmass/img/servente.jpg",
+//   "/pharmass/img/para.jpg",
+//   "/pharmass/img/moto.jpg",
+
+//   // Médicaments
+//   "/pharmass/img/medicaments/paracetamol.jpg",
+//   "/pharmass/img/medicaments/ibuprofene.jpg",
+//   "/pharmass/img/medicaments/sirop-toux.jpg",
+//   "/pharmass/img/medicaments/sirop-enfant.jpg",
+//   "/pharmass/img/medicaments/creme-dermique.jpg",
+//   "/pharmass/img/medicaments/pommade.jpg",
+//   "/pharmass/img/medicaments/gel-hydroalcoolique.jpg",
+//   "/pharmass/img/medicaments/savon-antiseptique.jpg",
+//   "/pharmass/img/medicaments/vitamine-c.jpg",
+//   "/pharmass/img/medicaments/multivitamines.jpg",
+//   "/pharmass/img/medicaments/thermometre.jpg",
+//   "/pharmass/img/medicaments/couche-bebe.jpg",
+//   "/pharmass/img/medicaments/lait-infantile.jpg",
+//   "/pharmass/img/medicaments/bandes-compresses.jpg",
+//   "/pharmass/img/medicaments/brosse-dents.jpg",
+//   "/pharmass/img/medicaments/dentifrice.jpg",
+//   "/pharmass/img/medicaments/fer-acide-folique.jpg"
+// ];
+
+// // INSTALL
+// self.addEventListener("install", (event) => {
+//   console.log("[SW] Install");
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => {
+//       return cache.addAll(FILES_TO_CACHE);
+//     })
+//   );
+//   self.skipWaiting();
+// });
+
+// // ACTIVATE
+// self.addEventListener("activate", (event) => {
+//   console.log("[SW] Activate");
+//   event.waitUntil(
+//     caches.keys().then((keys) =>
+//       Promise.all(
+//         keys.map((key) => {
+//           if (key !== CACHE_NAME) {
+//             return caches.delete(key);
+//           }
+//         })
+//       )
+//     )
+//   );
+//   self.clients.claim();
+// });
+
+// // FETCH
+// self.addEventListener("fetch", (event) => {
+//   event.respondWith(
+//     caches.match(event.request).then((response) => {
+//       if (response) return response;
+
+//       return fetch(event.request).catch(() => {
+//         if (event.request.mode === "navigate") {
+//           return caches.match("/pharmass/offline.html");
+//         }
+//       });
+//     })
+//   );
+// });
 
 
 // // Version du cache
