@@ -1,4 +1,280 @@
-/* RESET ET FOND */
+
+
+
+/* =========================
+   RESET GLOBAL
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  background: #f4f6f8;
+  color: #222;
+  line-height: 1.5;
+  min-height: 100vh;
+  padding-bottom: 90px; /* espace pour bottom nav */
+}
+
+/* =========================
+   HEADER
+========================= */
+.app-header {
+  background: linear-gradient(135deg, #1c962c, #25c03a);
+  color: #fff;
+  text-align: center;
+  padding: 5vw 4vw 6vw;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+.app-header h1 {
+  font-size: 5vw;
+  font-weight: 600;
+}
+
+.app-header p {
+  margin-top: 6px;
+  font-size: 3.5vw;
+  opacity: 0.9;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+.search-bar {
+  padding: 4vw;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 3.2vw;
+  border-radius: 16px;
+  border: none;
+  font-size: 4vw;
+  background: #fff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #999;
+}
+
+/* =========================
+   LISTES
+========================= */
+.pharmacy-list,
+#productsGrid {
+  padding: 4vw;
+}
+
+.pharmacy-card,
+.product-card {
+  display: flex;
+  align-items: center;
+  gap: 3vw;
+  background: #fff;
+  border-radius: 4vw;
+  padding: 3vw;
+  margin-bottom: 4vw;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pharmacy-card:active,
+.product-card:active {
+  transform: scale(0.98);
+}
+
+.pharmacy-card img,
+.product-card img {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 2.5vw;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* =========================
+   INFOS
+========================= */
+.pharmacy-info h3,
+.product-info h3 {
+  font-size: 4vw;
+  font-weight: 600;
+}
+
+.pharmacy-info p,
+.product-info p {
+  margin-top: 4px;
+  font-size: 3.5vw;
+  color: #666;
+}
+
+/* =========================
+   BOTTOM NAV
+========================= */
+.bottom-buttons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 3vw;
+  padding: 4vw;
+  background: #f4f6f8;
+  padding-bottom: calc(4vw + env(safe-area-inset-bottom));
+  box-shadow: 0 -6px 16px rgba(0,0,0,0.08);
+}
+
+.bottom-btn {
+  flex: 1;
+  padding: 3.2vw;
+  border-radius: 4vw;
+  border: none;
+  font-size: 4vw;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.bottom-btn.blue {
+  background: #3a98e6;
+}
+
+.bottom-btn.green {
+  background: #25c03a;
+}
+
+/* =========================
+   MODAL
+========================= */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  width: 90%;
+  max-width: 420px;
+  margin: 20vh auto;
+  padding: 5vw;
+  border-radius: 5vw;
+  text-align: center;
+  position: relative;
+  animation: fadeUp 0.25s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-content img {
+  width: 60vw;
+  max-width: 220px;
+  border-radius: 3vw;
+  margin-bottom: 4vw;
+}
+
+.modal-content h3 {
+  font-size: 5vw;
+  margin-bottom: 2vw;
+}
+
+.modal-content p {
+  font-size: 4vw;
+  color: #555;
+}
+
+.modal-content button {
+  margin-top: 4vw;
+  padding: 3.2vw;
+  width: 100%;
+  border-radius: 4vw;
+  border: none;
+  background: #25c03a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 4vw;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 3vw;
+  right: 4vw;
+  font-size: 8vw;
+  cursor: pointer;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+@media (min-width: 768px) {
+  .app-header h1 { font-size: 22px; }
+  .app-header p { font-size: 14px; }
+
+  .search-bar input {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .pharmacy-card img,
+  .product-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .pharmacy-info h3,
+  .product-info h3 {
+    font-size: 16px;
+  }
+
+  .pharmacy-info p,
+  .product-info p {
+    font-size: 13px;
+  }
+
+  .bottom-btn {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .modal-content {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .modal-content h3 { font-size: 18px; }
+  .modal-content p { font-size: 14px; }
+  .modal-content button { font-size: 15px; padding: 12px; }
+  .close { font-size: 26px; }
+}
+
+
+/* 
 * {
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
@@ -8,15 +284,15 @@ body {
   margin: 0;
   background: #f4f6f8;
   color: #222;
-  font-size: 16px; /* base responsive */
+  font-size: 16px; /* base responsive 
   line-height: 1.5;
 }
 
-/* HEADER */
+/* HEADER 
 .app-header {
   background: linear-gradient(135deg, #1c962c, #25c03a);
   color: white;
-  padding: 5vw 4vw; /* responsive padding */
+  padding: 5vw 4vw; /* responsive padding 
   text-align: center;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -24,7 +300,7 @@ body {
 
 .app-header h1 {
   margin: 0;
-  font-size: 5vw; /* responsive font */
+  font-size: 5vw; /* responsive font 
 }
 
 .app-header p {
@@ -33,7 +309,7 @@ body {
   opacity: 0.9;
 }
 
-/* SEARCH BAR */
+/* SEARCH BAR 
 .search-bar {
   padding: 4vw;
 }
@@ -47,7 +323,7 @@ body {
   box-shadow: 0 0.5vw 1vw rgba(0,0,0,0.08);
 }
 
-/* LISTE PHARMACIES / PRODUITS */
+/* LISTE PHARMACIES / PRODUITS 
 .pharmacy-list, #productsGrid {
   padding: 4vw;
 }
@@ -69,14 +345,14 @@ body {
 }
 
 .pharmacy-card img, .product-card img {
-  width: 20vw; /* responsive */
+  width: 20vw; /* responsive 
   height: 20vw;
   border-radius: 2vw;
   object-fit: cover;
   margin-right: 3vw;
 }
 
-/* INFO PHARMACIE / PRODUIT */
+/* INFO PHARMACIE / PRODUIT 
 .pharmacy-info h3, .product-info h3 {
   margin: 0;
   font-size: 4vw;
@@ -88,7 +364,7 @@ body {
   color: #666;
 }
 
-/* BOTTOM NAV */
+/* BOTTOM NAV 
 .bottom-buttons {
   display: flex;
   gap: 3vw;
@@ -117,7 +393,7 @@ body {
   background: #25c03a;
 }
 
-/* MODAL */
+/* MODAL 
 .modal {
   display: none;
   position: fixed;
@@ -171,7 +447,7 @@ body {
   cursor: pointer;
 }
 
-/* RESPONSIVE MEDIA QUERY POUR GRAND ECRAN */
+/* RESPONSIVE MEDIA QUERY POUR GRAND ECRAN 
 @media (min-width: 768px) {
   .app-header h1 { font-size: 22px; }
   .app-header p { font-size: 14px; }
@@ -186,7 +462,7 @@ body {
   .modal-content p { font-size: 14px; }
   .modal-content button { font-size: 15px; padding: 12px; }
   .close { font-size: 26px; top: 12px; right: 16px; }
-}
+} */
 
 
 

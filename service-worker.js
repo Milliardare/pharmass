@@ -55,15 +55,25 @@ self.addEventListener("activate", (event) => {
   );
   self.clients.claim();
 });
-
-// FETCH
+//  fetch  fech
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    fetch(event.request).catch(() =>
-      caches.match("/pharmass/offline.html")
-    )
+    caches.match(event.request).then((cached) => {
+      return cached || fetch(event.request);
+    }).catch(() => caches.match("/pharmass/offline.html"))
   );
 });
+
+
+
+// // FETCH
+// self.addEventListener("fetch", (event) => {
+//   event.respondWith(
+//     fetch(event.request).catch(() =>
+//       caches.match("/pharmass/offline.html")
+//     )
+//   );
+// });
 
 
 

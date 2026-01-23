@@ -1,3 +1,17 @@
+// Pré-remplir la pharmacie depuis l'URL
+window.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const pharmacie = params.get("pharmacie");
+
+  if (pharmacie) {
+    const pharmacieInput = document.getElementById("pharmacie");
+    pharmacieInput.value = pharmacie;
+    pharmacieInput.readOnly = true; // empêche la modification
+  }
+});
+
+
+
 const optionNomMed = document.getElementById("optionNomMed");
 const medicamentDiv = document.getElementById("medicamentDiv");
 const optionConseil = document.getElementById("optionConseil");

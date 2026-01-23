@@ -208,7 +208,8 @@ function showModal(p) {
     <h3>${p.name}</h3>
     <p>📍 ${p.location}</p>
     <p>⏰ ${p.openHour} - ${p.closeHour}</p>
-    <button onclick="navigate('order.html')">Commander</button>
+    <button onclick="orderFromPharmacy('${p.name}')">Commander</button>
+
   `;
 }
 
@@ -217,10 +218,23 @@ function closeModal() {
 }
 
 function navigate(page) {
-  window.location.href = page;
+  window.location.href = "/pharmass/" + page;
 }
 
+// function navigate(page) {
+//   window.location.href = page;
+// }
+
 renderPharmacies(pharmacies);
+
+
+
+
+function orderFromPharmacy(pharmacyName) {
+  const url = "/pharmass/order.html?pharmacie=" + encodeURIComponent(pharmacyName);
+  window.location.href = url;
+}
+
 
 // const pharmacies = [
 //   {
