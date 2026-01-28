@@ -234,6 +234,8 @@ function orderFromPharmacy(pharmacyName) {
   const url = "/pharmass/order.html?pharmacie=" + encodeURIComponent(pharmacyName);
   window.location.href = url;
 }
+// bouton retour
+function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }
 
 
 // const pharmacies = [

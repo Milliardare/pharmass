@@ -39,6 +39,9 @@ installBtn.addEventListener("click", async () => {
   installBtn.style.display = "none";
 });
 
+// bouton retour
+function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }
+
 // ici c est pour l installation de l application
 // let deferredPrompt;
 

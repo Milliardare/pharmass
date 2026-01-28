@@ -118,11 +118,13 @@ body {
   background: white;
   width: 90%;
   max-width: 380px;
-  margin: 20% auto;
+  max-height: 80vh; /* hauteur max = 80% de l’écran */
+  margin: 10% auto;
   padding: 20px;
   border-radius: 20px;
   text-align: center;
   position: relative;
+  overflow-y: auto; /* active le scroll si contenu trop long */
 }
 
 .modal-content img {
@@ -161,6 +163,9 @@ body {
   font-size: 26px;
   cursor: pointer;
 }
+
+/* bouton de retour */
+/* bouton retour */ .btn-retour { position: absolute; /* placé en haut, mais pas fixé */ top: 10px; left: 10px; width: 60px; height: 60px; background-color: transparent; /* pas de fond */ border: none; cursor: pointer; /* flèche blanche plus épaisse */ clip-path: polygon( 75% 0%, /* pointe en haut à droite */ 45% 50%, /* centre gauche */ 75% 100%, /* pointe en bas à droite */ 55% 100%, /* épaissir la base */ 25% 50%, /* milieu gauche */ 55% 0% /* épaissir le haut */ ); background: white; }
 
 
 

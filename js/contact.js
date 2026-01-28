@@ -13,3 +13,6 @@ document.getElementById("whatsappBtn").addEventListener("click", () => {
 document.getElementById("callBtn").addEventListener("click", () => {
   window.location.href = `tel:${phoneNumber}`;
 });
+// bouton retour
+function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }
+

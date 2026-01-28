@@ -227,8 +227,8 @@ body {
 }
 
 
-
-
+/* bouton de retour */
+/* bouton retour */ .btn-retour { position: absolute; /* placé en haut, mais pas fixé */ top: 10px; left: 10px; width: 60px; height: 60px; background-color: transparent; /* pas de fond */ border: none; cursor: pointer; /* flèche blanche plus épaisse */ clip-path: polygon( 75% 0%, /* pointe en haut à droite */ 45% 50%, /* centre gauche */ 75% 100%, /* pointe en bas à droite */ 55% 100%, /* épaissir la base */ 25% 50%, /* milieu gauche */ 55% 0% /* épaissir le haut */ ); background: white; }
 
 
 /* body {

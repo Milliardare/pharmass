@@ -1,4 +1,134 @@
+
 body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Header */
+header {
+  background: #259c3a;
+  color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  font-size: 22px;
+}
+
+/* Bouton retour */
+.btn-retour {
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(
+    80% 0%,
+    45% 50%,
+    80% 100%,
+    50% 100%,
+    20% 50%,
+    50% 0%
+  );
+  background: white;
+}
+
+/* Formulaire */
+main {
+  max-width: 500px;
+  margin: 30px auto;
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form p.intro {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #555;
+  text-align: justify;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+  color: #259c3a;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #259c3a;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+/* Options */
+h3 {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #259c3a;
+}
+
+/* Boutons */
+.buttons-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+#callBtn { background: #1E90FF; color: white; }
+#whatsappBtn { background: #25c03a; color: white; }
+
+#submitBtn {
+  margin-top: 24px;
+  width: 100%;
+  background: #25c03a;
+  color: white;
+}
+
+
+
+/* body {
     font-family: Arial, sans-serif;
     background: #f4f4f4;
     margin: 0;
@@ -70,5 +200,7 @@ body {
     width: 100%;
     background: #259c3a;
     color: white;
-  }
-  
+  } */
+  /* bouton de retour */
+/* bouton retour */ .btn-retour { position: absolute; /* placé en haut, mais pas fixé */ top: 10px; left: 10px; width: 60px; height: 60px; background-color: transparent; /* pas de fond */ border: none; cursor: pointer; /* flèche blanche plus épaisse */ clip-path: polygon( 75% 0%, /* pointe en haut à droite */ 45% 50%, /* centre gauche */ 75% 100%, /* pointe en bas à droite */ 55% 100%, /* épaissir la base */ 25% 50%, /* milieu gauche */ 55% 0% /* épaissir le haut */ ); background: white; }
+

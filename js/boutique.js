@@ -124,7 +124,7 @@ const products = [
   {
     nom: "Bandes compresses stériles",
     categorie: "Parapharmacie",
-    description: "Pour panser coupures et petites plaies.",
+    description: "Pour panser coupures et petites plaies.sdfjkqekjslef:sblkfdhsvid flqbksf qsvkdbsvjkldbfjqbkfjqs jkfb qslvqskjvqjlskfbqvhsbflqvsblfjvqsjfvqsjfvq",
     prix: 1500,
     imageUrl: "img/medicaments/bandes-compresses.jpg",
   },
@@ -250,7 +250,7 @@ function openProductModal(p) {
 
     <p id="totalPrice"><strong>Total :</strong> ${p.prix + RETRAIT_PRIX} FCFA</p>
 
-    <button onclick="orderWhatsapp('${p.nom}', ${p.prix})">
+    <button onclick="orderWhatsapp('${p.nom}', ${p.prix}, '${p.description}')">
       🛒 Commander via WhatsApp
     </button>
   `;
@@ -285,6 +285,7 @@ function orderWhatsapp(productName, prixProduit) {
   const message = encodeURIComponent(
     `Bonjour, je souhaite commander :
 - Produit : ${productName}
+- Description : ${description}
 - Prix : ${prixProduit} FCFA
 - Mode : ${selectedDeliveryMode === "livraison" ? "Livraison à domicile" : "Retrait en pharmacie"}
 - Frais : ${livraison} FCFA
@@ -295,6 +296,8 @@ function orderWhatsapp(productName, prixProduit) {
 }
 
 renderProducts();
+// bouton retour
+function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }
 
 
 

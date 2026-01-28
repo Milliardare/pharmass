@@ -63,3 +63,5 @@ document.getElementById("orderForm").addEventListener("submit", (e) => {
   medicamentDiv.style.display = "none";
   symptomesDiv.style.display = "none";
 });
+// bouton retour
+function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }

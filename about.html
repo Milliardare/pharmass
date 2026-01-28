@@ -54,7 +54,10 @@ pharmacie partenaire Gabon
 </head>
 <body>
 
+
 <header>
+  <!-- Bouton retour en haut -->
+<button class="btn-retour" onclick="retour()"></button>
   <h1>À propos</h1>
 </header>
 
@@ -92,6 +95,7 @@ pharmacie partenaire Gabon
       .catch((err) => console.log("Service Worker failed:", err));
   }
 </script> -->
+<script src="js/about.js"></script>
 
 <script>
   if ("serviceWorker" in navigator) {
