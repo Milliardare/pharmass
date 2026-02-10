@@ -179,6 +179,35 @@ button:hover {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+ 
+
+
+/* pour hamberger l obtion deroulante */
+
+.accordion-btn {
+  width: 100%;
+  padding: 12px;
+  background: #25c03a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordion-btn:hover {
+  opacity: 0.9;
+}
+
+.accordion-panel {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
 
 /* 
 header h1 {
@@ -399,5 +428,5 @@ button:hover {
     color: white;
   } */
   /* bouton de retour */
-/* bouton retour */ .btn-retour { position: absolute; /* placé en haut, mais pas fixé */ top: 10px; left: 10px; width: 60px; height: 60px; background-color: transparent; /* pas de fond */ border: none; cursor: pointer; /* flèche blanche plus épaisse */ clip-path: polygon( 75% 0%, /* pointe en haut à droite */ 45% 50%, /* centre gauche */ 75% 100%, /* pointe en bas à droite */ 55% 100%, /* épaissir la base */ 25% 50%, /* milieu gauche */ 55% 0% /* épaissir le haut */ ); background: white; }
+/* bouton retour  .btn-retour { position: absolute; /* placé en haut, mais pas fixé  top: 10px; left: 10px; width: 60px; height: 60px; background-color: transparent; /* pas de fond  border: none; cursor: pointer; /* flèche blanche plus épaisse  clip-path: polygon( 75% 0%, /* pointe en haut à droite 45% 50%, /* centre gauche  75% 100%, /* pointe en bas à droite  55% 100%, /* épaissir la base  25% 50%, /* milieu gauche  55% 0% /* épaissir le haut  ); background: white; }
 
