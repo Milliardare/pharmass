@@ -231,6 +231,141 @@ body {
 /* bouton retour */ .btn-retour { position: absolute; /* placé en haut, mais pas fixé */ top: 10px; left: 10px; width: 60px; height: 60px; background-color: transparent; /* pas de fond */ border: none; cursor: pointer; /* flèche blanche plus épaisse */ clip-path: polygon( 75% 0%, /* pointe en haut à droite */ 45% 50%, /* centre gauche */ 75% 100%, /* pointe en bas à droite */ 55% 100%, /* épaissir la base */ 25% 50%, /* milieu gauche */ 55% 0% /* épaissir le haut */ ); background: white; }
 
 
+/* Bloc global Activité en direct */
+.live-orders {
+  position: absolute;
+  top: 80px; /* ajuste selon ton header */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 20; /* au-dessus du hero */
+  text-align: left;
+}
+
+/* Titre Activité en direct */
+.live-orders h3 {
+  margin: 0 0 8px 0;
+  font-size: 19px;
+  text-align: center;
+  font-weight: bold;
+  color: #da0d0d; /* blanc pour être lisible sur l’image */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
+
+/* Conteneur des messages */
+.live-chat {
+  width: 100%;
+}
+
+/* Style des bulles */
+.live-message {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 14px;
+  margin: 6px 0;
+  border-radius: 18px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.6s ease;
+}
+
+/* Avatar rond */
+.live-message img.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #fff;
+}
+
+/* Animation apparition */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+/* .live-chat {
+  position: absolute;
+  top: 100px; /* ajuste selon ton header 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 10; /* au-dessus du hero *
+}
+
+.live-message {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  color: #000000;
+  padding: 10px 14px;
+  margin: 8px 0;
+  border-radius: 18px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.6s ease;
+}
+
+.live-message img.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 2px solid #fff;
+}
+
+/* ......GHGHGHG 
+
+.live-orders {
+  position: absolute;
+  top: 100px; /* ajuste selon ton header 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  z-index: 10; /* au-dessus du hero 
+  text-align: left;
+}
+
+.live-orders h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* blanc pour être lisible sur l’image 
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+
+/* Animation d’apparition 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
 /* body {
     margin: 0;
     font-family: 'Lato', sans-serif;

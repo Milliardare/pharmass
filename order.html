@@ -52,15 +52,302 @@ pharmacie partenaire Gabon
 
   <link rel="stylesheet" href="css/order.css">
 </head>
-<body>
-<!-- Bouton retour en haut -->
+
+<body> <!-- Bouton retour --> <button class="btn-retour" onclick="retour()"></button> <!-- En-tête --> <header> <h1>Formulaire de commande</h1> </header>
+  <section class="live-orders">
+    <h3>📢 Activité en direct ...</h3>
+    <div class="live-chat" id="liveChat"></div>
+  </section>
+   
+ <!-- <section class="live-orders"> <h3>📢 Activité en direct</h3> <ul id="liveList"></ul> 
+</section>  -->
+<!-- Formulaire --> <main> <form id="orderForm"> <p> Avec PHARMAS, commandez vos médicaments en toute simplicité :<br> ✅ Livraison à domicile<br> ✅ Click & Collect en pharmacie partenaire <br>   ⚠️ Nous ne donnons pas de conseils pharmaceutiques Nous vous mettons en contact direct avec des professionels de santé.</p> <label>Pharmacie sélectionnée</label> <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required> <label>Lieu de livraison (facultatif)</label> <input type="text" id="lieu" placeholder="Ex: Quartier Avorbam"> <h3>Options :</h3> <label><input type="checkbox" id="optionNomMed"> J’ai le nom du médicament</label> <div id="medicamentDiv" style="display:none;"> <input type="text" id="medicament" placeholder="Nom du médicament"> </div> <label><input type="checkbox" id="optionOrdonnance"> J’ai une ordonnance (WhatsApp)</label> <label><input type="checkbox" id="optionConseil"> Je souhaite un conseil du pharmacien</label> <label><input type="checkbox" id="optionRecupSelf"> Je récupère en pharmacie</label> <div class="buttons-row"> <button type="button" id="callBtn">📞 Appeler</button> <button type="button" id="whatsappBtn">💬 WhatsApp</button> </div> <button type="submit" id="submitBtn">✅ Confirmer la commande</button> </form> </main> 
+ <!-- <script> const messages = [ "📦 Livraison confirmée (Owendo)", "📦 Livraison confirmée (Pharmacie Partenaire – Nzeng-Ayong)", "📦 Livraison confirmée (Port-Gentil)", "📦 Click & Collect validé (Sherco – Akanda)", "💬 Commande WhatsApp reçue (Libreville – Charbonnage)", "📞 Appel client pour médicaments (Akanda – Glass)", "💬 Click & Collect choisi (Owendo – Carrefour)", "📦 Livraison confirmée (Franceville – Mamboundou)" ]; let index = 0; setInterval(() => { const liveList = document.getElementById("liveList"); const newItem = document.createElement("li"); newItem.textContent = messages[index % messages.length]; liveList.insertBefore(newItem, liveList.firstChild); if (liveList.children.length > 6) { liveList.removeChild(liveList.lastChild); } index++; }, 6000); </script> -->
+
+ <script>
+  const messages = [
+  "📞 Appel client pour médicaments (Akanda –)",
+    "💬 Click & Collect choisi (Owendo – Carrefour)",
+    "📦 Livraison confirmée (Franceville )",
+    "📦 Livraison confirmée (Libreville – Lalala)",
+    "📦 Livraison confirmée (Owendo)",
+    "📦 Livraison confirmée (Pharmacie Partenaire – Nzeng-Ayong)",
+    "📦 Livraison confirmée (Port-Gentil)",
+    "📦 Click & Collect validé (Sherco – Akanda)",
+    "💬 Commande WhatsApp reçue (Libreville – Charbonnage)",
+    "📞 Appel client pour médicaments (Akanda –)",
+    "💬 Click & Collect choisi (Owendo – Carrefour)",
+    "📦 Livraison confirmée (Franceville – )",
+    "📦 Livraison confirmée (Libreville – Lalala)",
+    "💬 Un utilisateur a contacté un pharmacien (Port-Gentil – Matanda)"
+  ];
+
+  let index = 0;
+  function showMessage() {
+    const chat = document.getElementById("liveChat");
+    const msg = document.createElement("div");
+    msg.className = "live-message";
+
+    // avatar générique
+    const avatar = document.createElement("img");
+    avatar.src = "img/avatar.jpg"; // mets une petite image ronde
+    avatar.className = "avatar";
+
+    const text = document.createElement("span");
+    text.textContent = messages[index % messages.length];
+
+    msg.appendChild(avatar);
+    msg.appendChild(text);
+    chat.appendChild(msg);
+
+    // Supprimer le message après 6 secondes
+    setTimeout(() => {
+      msg.remove();
+    }, 6000);
+
+    index++;
+  }
+
+  // Premier message
+  showMessage();
+  // Nouveau message toutes les 5 secondes
+  setInterval(showMessage, 5000);
+</script>
+
+ <script src="js/order.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pharmass/service-worker.js")
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.error("SW error", err));
+    }
+  </script>
+
+</body>
+<!-- <body>
+  <!-- Bouton retour 
+  <button class="btn-retour" onclick="retour()"></button>
+
+  <!-- En-tête 
+  <header>
+    <h1>Formulaire de commande</h1>
+  </header>
+
+  <!-- Bloc activité en direct 
+  <section class="live-orders">
+    <h3>📢 Activité en direct</h3>
+    <ul id="liveList"></ul>
+  </section>
+
+  <!-- Formulaire 
+  <main>
+    <form id="orderForm">
+      <p>
+        Commandez vos médicaments avec PHARMAS.<br>
+        ✅ Livraison à domicile<br>
+        ✅ Click & Collect en pharmacie partenaire
+      </p>
+
+      <label>Pharmacie sélectionnée</label>
+      <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required>
+
+      <label>Lieu de livraison (facultatif)</label>
+      <input type="text" id="lieu" placeholder="Ex: Quartier Avorbam">
+
+      <h3>Options :</h3>
+      <label><input type="checkbox" id="optionNomMed"> J’ai le nom du médicament</label>
+      <div id="medicamentDiv" style="display:none;">
+        <input type="text" id="medicament" placeholder="Nom du médicament">
+      </div>
+
+      <label><input type="checkbox" id="optionOrdonnance"> J’ai une ordonnance (WhatsApp)</label>
+      <label><input type="checkbox" id="optionConseil"> Je souhaite un conseil du pharmacien</label>
+      <label><input type="checkbox" id="optionRecupSelf"> Je récupère en pharmacie</label>
+
+      <div class="buttons-row">
+        <button type="button" id="callBtn">📞 Appeler</button>
+        <button type="button" id="whatsappBtn">💬 WhatsApp</button>
+      </div>
+
+      <button type="submit" id="submitBtn">✅ Confirmer la commande</button>
+    </form>
+  </main>
+
+  <!-- Script activité en direct 
+  <script>
+    const messages = [
+      "📦 Livraison confirmée (Owendo)",
+      "📦 Livraison confirmée (Pharmacie Partenaire – Nzeng-Ayong)",
+      "📦 Livraison confirmée (Port-Gentil)",
+      "📦 Click & Collect validé (Sherco – Akanda)",
+      "💬 Un utilisateur vient de passer une commande via WhatsApp (Libreville – Charbonnage)",
+      "📞 Un client a appelé pour récupérer ses médicaments (Akanda – Glass)",
+      "💬 Un utilisateur a choisi Click & Collect (Owendo – Carrefour)",
+      "📦 Livraison confirmée (Franceville – Mamboundou)"
+    ];
+
+    let index = 0;
+    setInterval(() => {
+      const liveList = document.getElementById("liveList");
+      const newItem = document.createElement("li");
+      newItem.textContent = messages[index % messages.length];
+      liveList.insertBefore(newItem, liveList.firstChild);
+      if (liveList.children.length > 6) {
+        liveList.removeChild(liveList.lastChild);
+      }
+      index++;
+    }, 6000);
+  </script>
+  
+  <script src="js/order.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pharmass/service-worker.js")
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.error("SW error", err));
+    }
+  </script>
+  
+</body> -->
+
+<!-- <body>
+<!-- Bouton retour en haut 
 <button class="btn-retour" onclick="retour()"></button>
 
   <header>
     <h1>Formulaire de commande</h1>
   </header>
+     <!-- Bloc activité en direct 
+  <section class="live-orders">
+    <h3>📢 Activité en direct</h3>
+    <ul id="liveList"></ul>
+  </section>
 
+
+  
   <main>
+    <form id="orderForm">
+      <p>
+        PHARMAS est un pont entre vous et les pharmacies partenaires.<br>
+        Vous pouvez commander vos médicaments et choisir entre :<br>
+        ✅ Livraison à domicile<br>
+        ✅ Click & Collect dans toutes les pharmacies partenaires<br><br>
+        ⚠️ Nous ne donnons pas de conseils pharmaceutiques officiels.
+      </p>
+  
+      <label>Pharmacie sélectionnée</label>
+      <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required>
+  
+      <label>Lieu de livraison (facultatif si récupération)</label>
+      <input type="text" id="lieu" placeholder="Ex: Quartier Avorbam, derrière les tsanguettes">
+  
+      <h3>Options de commande :</h3>
+      <label><input type="checkbox" id="optionNomMed"> J’ai le nom du médicament</label>
+      <div id="medicamentDiv" style="display:none;">
+        <input type="text" id="medicament" placeholder="Nom du médicament">
+      </div>
+  
+      <label><input type="checkbox" id="optionOrdonnance"> J’ai une ordonnance (envoyer via WhatsApp)</label>
+  
+      <label><input type="checkbox" id="optionConseil"> Je souhaite un conseil du pharmacien</label>
+      <div id="symptomesDiv" style="display:none;">
+        <textarea id="symptomes" placeholder="Décrivez vos symptômes"></textarea>
+      </div>
+  
+      <label><input type="checkbox" id="optionRecupSelf"> Je souhaite récupérer moi-même à la pharmacie</label>
+  
+      <div class="buttons-row">
+        <button type="button" id="callBtn">📞 Appeler</button>
+        <button type="button" id="whatsappBtn">💬 WhatsApp</button>
+      </div>
+  
+      <button type="submit" id="submitBtn">Confirmer la commande</button>
+    </form>
+  </main>
+
+   <script>
+  const messages = [
+    "💬 Un client vient de passer une commande via WhatsApp (Libreville)",
+    "📞 Un utilisateur a appelé pour récupérer ses médicaments (Akanda)",
+    "💬 Un client a choisi Click & Collect (Owendo)",
+    "📦 Une commande confirmée pour livraison (Port-Gentil)",
+    "💬 Un utilisateur a contacté un pharmacien (Franceville)",
+    "📞 Un client a validé sa commande par téléphone (Libreville)",
+    "💬 Un utilisateur a envoyé son ordonnance (Akanda)",
+    "📦 Livraison organisée pour un client (Owendo)"
+  ];
+
+  let index = 0;
+  setInterval(() => {
+    const liveList = document.getElementById("liveList");
+    const newItem = document.createElement("li");
+    newItem.textContent = messages[index % messages.length];
+    liveList.insertBefore(newItem, liveList.firstChild); // ajoute en haut
+    if (liveList.children.length > 8) {
+      liveList.removeChild(liveList.lastChild); // garde max 8 messages
+    }
+    index++;
+  }, 7000); // toutes les 7 secondes
+</script>
+
+
+  <script src="js/order.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/pharmass/service-worker.js")
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.error("SW error", err));
+    }
+  </script>
+  
+  
+</body> -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <main>
+     <form id="orderForm"> <p> PHARMAS est un pont entre vous et les pharmacies partenaires.<br> Vous pouvez commander vos médicaments et choisir entre :<br> ✅ Livraison à domicile<br> ✅ Click & Collect dans toutes les pharmacies partenaires<br><br> ⚠️ Nous ne donnons pas de conseils pharmaceutiques officiels. </p> <label>Pharmacie sélectionnée</label> <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required> <label>Lieu de livraison (facultatif si récupération)</label> <input type="text" id="lieu" placeholder="Ex: Quartier Avorbam, derrière les tsanguettes"> <h3>Options de commande :</h3> <label><input type="checkbox" id="optionNomMed"> J’ai le nom du médicament</label> <div id="medicamentDiv" style="display:none;"> <input type="text" id="medicament" placeholder="Nom du médicament"> </div> <label><input type="checkbox" id="optionOrdonnance"> J’ai une ordonnance (envoyer via WhatsApp)</label> <label><input type="checkbox" id="optionConseil"> Je souhaite un conseil du pharmacien</label> <div id="symptomesDiv" style="display:none;"> <textarea id="symptomes" placeholder="Décrivez vos symptômes"></textarea> </div> <label><input type="checkbox" id="optionRecupSelf"> Je souhaite récupérer moi-même à la pharmacie</label> <div class="buttons-row"> <button type="button" id="callBtn">📞 Appeler</button> <button type="button" id="whatsappBtn">💬 WhatsApp</button> </div> <button type="submit" id="submitBtn">Confirmer la commande</button> </form> </main>
+
+  <!-- <main>
     <form id="orderForm">
       <p>
         PHARMAS est un pont entre vous et les pharmacies partenaires.<br>
@@ -105,25 +392,28 @@ pharmacie partenaire Gabon
 
       <button type="submit" id="submitBtn">Confirmer la commande</button>
     </form>
-  </main>
-
-  <script src="js/order.js"></script>
+  </main> 
   <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/pharmass/service-worker.js")
-        .then(() => console.log("Service Worker registered"))
-        .catch(err => console.error("SW error", err));
-    }
+    const messages = [
+      "💬 Un utilisateur vient de passer une commande via WhatsApp",
+      "📞 Un client a appelé pour récupérer ses médicaments ",
+      "💬 Une autre personne a choisi Click & Collect et a envoyer son ordonnance ",
+      "📦 Une commande vient d’être confirmée pour la livraison",
+      "💬 Un nouvel utilisateur vient de contacter un pharmacien",
+      "📞 Une autre commande vient d’être validée par téléphone"
+    ];
+  
+    let index = 0;
+    setInterval(() => {
+      const liveList = document.getElementById("liveList");
+      const newItem = document.createElement("li");
+      newItem.textContent = messages[index % messages.length];
+      liveList.insertBefore(newItem, liveList.firstChild); // ajoute en haut
+      if (liveList.children.length > 5) {
+        liveList.removeChild(liveList.lastChild); // garde max 5 messages
+      }
+      index++;
+    }, 7000); // toutes les 7 secondes
   </script>
   
-  <!-- <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("./service-worker.js")
-        .then(() => console.log("Service Worker registered."))
-        .catch((err) => console.log("Service Worker failed:", err));
-    }
-  </script> -->
-  
-  
-</body>
-</html>
+ -->

@@ -71,13 +71,29 @@ pharmacie partenaire Gabon
 <button class="btn-retour" onclick="retour()"></button>
 
   <header class="top-header">
-    <h1>Pharmas</h1>
+    <h1>PHARMAS</h1>
     <span>Votre passerelle vers les pharmacies</span>
   </header>
+ <!-- <section class="live-orders"> <h3>📢 Activité en direct</h3> <div class="live-chat" id="liveChat"></div> </section> -->
+<!-- <div class="live-chat" id="liveChat"></div> -->
+
+<!-- <div class="live-banner">
+  <div class="ticker" id="ticker"></div>
+</div> -->
+  <!-- ACTIVITÉ EN DIRECT <section class="live-orders"> <h3>📢 Activité en direct</h3> <ul id="liveList"></ul> </section> -->
 
   <!-- HERO -->
+<!-- ACTIVITÉ EN DIRECT -->
+<section class="live-orders">
+  <h3>📢 Activité en direct ...</h3>
+  <div class="live-chat" id="liveChat"></div>
+</section>
+
+
+
   <section class="hero">
     <img src="img/servente.jpg" class="hero-bg">
+  
 
     <img src="img/para.jpg" class="floating floating-left">
     <img src="img/moto.jpg" class="floating floating-right">
@@ -154,6 +170,149 @@ pharmacie partenaire Gabon
 
   </main>
 
+
+  <script>
+    const messages = [
+  "📦 Livraison confirmée (Owendo)",
+  "📦 Livraison confirmée (Pharmacie Partenaire – Nzeng-Ayong)",
+  "📦 Livraison confirmée (Port-Gentil)",
+  "📦 Click & Collect validé (Sherco – Akanda)",
+  "💬 Un utilisateur vient de passer une commande via WhatsApp (Libreville – Charbonnage)",
+  "📞 Un client a appelé pour récupérer ses médicaments (Akanda )",
+  "💬 Un utilisateur a choisi Click & Collect (Owendo – Carrefour)",
+  "📦 Livraison confirmée (Franceville – Mamboundou)",
+  "💬 Un utilisateur a contacté un pharmacien (Libreville – PK8)",
+  "📞 Un client a validé sa commande par téléphone (Libreville – Nzeng-Ayong)",
+  "💬 Ordonnance envoyée et transmise (Akanda – Angondjé)",
+  "📦 Livraison organisée pour un client (Owendo – Alibandeng)",
+  "📦 Livraison confirmée (Port-Gentil – Centre-ville)",
+  "💬 Un utilisateur vient de passer une commande via WhatsApp (Franceville – Potos)",
+  "📦 Click & Collect confirmé (Libreville – Mont-Bouët)",
+  "📞 Un client a appelé pour récupérer ses médicaments (Owendo – SNI)",
+  "💬 Un utilisateur a contacté un pharmacien (Akanda – Bord de mer)",
+  "📦 Livraison confirmée (Libreville – Lalala)",
+  "📦 Livraison confirmée (Pharmacie Partenaire – Nzeng-Ayong)",
+  "📦 Livraison confirmée (Franceville – Ngoungou)",
+  "💬 Un utilisateur vient de passer une commande via WhatsApp (Port-Gentil – Matanda)",
+  "📦 Livraison confirmée (Libreville – PK12)",
+  "📦 Click & Collect validé (Owendo – Sorbonne)",
+  "💬 Un utilisateur a contacté un pharmacien (Akanda – Cité des Ailes)",
+  "📞 Un client a appelé pour récupérer ses médicaments (Akanda – Glass)",
+  "💬 Un utilisateur a choisi Click & Collect (Owendo – Carrefour)",
+  "📦 Livraison confirmée (Franceville – Mamboundou)",
+  "💬 Un utilisateur a contacté un pharmacien (Libreville – PK8)",
+  "📞 Un client a validé sa commande par téléphone (Libreville – Nzeng-Ayong)",
+  "💬 Ordonnance envoyée et transmise (Akanda – Angondjé)",
+  "📦 Livraison organisée pour un client (Owendo – Alibandeng)",
+  "📦 Livraison confirmée (Port-Gentil – Centre-ville)",
+];
+
+    
+  
+    let index = 0;
+    function showMessage() {
+      const chat = document.getElementById("liveChat");
+      const msg = document.createElement("div");
+      msg.className = "live-message";
+  
+      const avatar = document.createElement("img");
+      avatar.src = "img/avatar.jpg"; // ton image ronde
+      avatar.className = "avatar";
+  
+      const text = document.createElement("span");
+      text.textContent = messages[index % messages.length];
+  
+      msg.appendChild(avatar);
+      msg.appendChild(text);
+      chat.appendChild(msg);
+  
+      // Supprimer le message après 8 secondes (disparition auto)
+      setTimeout(() => {
+        msg.remove();
+      }, 8000);
+  
+      index++;
+    }
+  
+    // Premier message
+    showMessage();
+    // Nouveau message toutes les 6 secondes
+    setInterval(showMessage, 4000);
+  </script>
+  
+  <!-- <script>
+    const messages = [
+      "💬 Un client vient de passer une commande via WhatsApp (Libreville)",
+      "📞 Un utilisateur a appelé pour récupérer ses médicaments (Akanda)",
+      "💬 Un client a choisi Click & Collect (Owendo)",
+      "📦 Livraison confirmée (Port-Gentil)",
+      "💬 Un utilisateur a contacté un pharmacien (Franceville)",
+      "📞 Un client a validé sa commande par téléphone (Libreville)",
+      "💬 Ordonnance envoyée et transmise (Akanda)",
+      "📦 Livraison organisée pour un client (Owendo)"
+    ];
+  
+    let index = 0;
+    function showMessage() {
+      const chat = document.getElementById("liveChat");
+      const msg = document.createElement("div");
+      msg.className = "live-message";
+  
+      // avatar générique
+      const avatar = document.createElement("img");
+      avatar.src = "img/avatar.png"; // mets une petite image ronde (ex: icône utilisateur)
+      avatar.className = "avatar";
+  
+      const text = document.createElement("span");
+      text.textContent = messages[index % messages.length];
+  
+      msg.appendChild(avatar);
+      msg.appendChild(text);
+      chat.appendChild(msg);
+  
+      // garder max 4 messages visibles
+      if (chat.children.length > 4) {
+        chat.removeChild(chat.firstChild);
+      }
+  
+      index++;
+    }
+  
+    // Premier message
+    showMessage();
+    // Nouveau message toutes les 6 secondes
+    setInterval(showMessage, 6000);
+  </script>
+   -->
+
+  <!-- <script>
+    const messages = [
+      "💬 Un client vient de passer une commande via WhatsApp (Libreville)",
+      "📞 Un utilisateur a appelé pour récupérer ses médicaments (Akanda)",
+      "💬 Un client a choisi Click & Collect (Owendo)",
+      "📦 Livraison confirmée (Port-Gentil)",
+      "💬 Un utilisateur a contacté un pharmacien (Franceville)",
+      "📞 Un client a validé sa commande par téléphone (Libreville)",
+      "💬 Ordonnance envoyée et transmise (Akanda)",
+      "📦 Livraison organisée pour un client (Owendo)"
+    ];
+  
+    let index = 0;
+    const ticker = document.getElementById("ticker");
+  
+    function updateTicker() {
+      ticker.textContent = messages[index % messages.length];
+      index++;
+    }
+  
+    // Premier message
+    updateTicker();
+  
+    // Change le message toutes les 7 secondes
+    setInterval(updateTicker, 7000);
+  </script> -->
+  
+  <!-- SCRIPT ACTIVITÉ EN DIRECT <script> const messages = [ "💬 Un client vient de passer une commande via WhatsApp (Libreville)", "📞 Un utilisateur a appelé pour récupérer ses médicaments (Akanda)", "💬 Un client a choisi Click & Collect (Owendo)", "📦 Livraison confirmée (Port-Gentil)", "💬 Un utilisateur a contacté un pharmacien (Franceville)", "📞 Un client a validé sa commande par téléphone (Libreville)", "💬 Ordonnance envoyée et transmise (Akanda)", "📦 Livraison organisée pour un client (Owendo)" ]; let index = 0; setInterval(() => { const liveList = document.getElementById("liveList"); const newItem = document.createElement("li"); newItem.textContent = messages[index % messages.length]; liveList.insertBefore(newItem, liveList.firstChild); if (liveList.children.length > 6) { liveList.removeChild(liveList.lastChild); } index++; }, 7000); </script> -->
   <script src="js/welcome.js"></script>
 
   <script>
