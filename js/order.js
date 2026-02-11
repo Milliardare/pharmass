@@ -10,8 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
-
 const optionNomMed = document.getElementById("optionNomMed");
 const medicamentDiv = document.getElementById("medicamentDiv");
 const optionConseil = document.getElementById("optionConseil");
@@ -28,12 +26,10 @@ optionConseil.addEventListener("change", () => {
 document.getElementById("callBtn").addEventListener("click", () => {
   window.location.href = "tel:+241074224966";
 });
+
 document.getElementById("orderForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const nom = document.getElementById("nom")?.value || "";
-  const prenom = document.getElementById("prenom")?.value || "";
-  const tel = document.getElementById("tel")?.value || "";
   const pharmacie = document.getElementById("pharmacie").value;
   const lieu = document.getElementById("lieu").value;
 
@@ -43,22 +39,91 @@ document.getElementById("orderForm").addEventListener("submit", (e) => {
   if (optionConseil.checked) selectedOptions.push("Conseil");
   if (document.getElementById("optionRecupSelf").checked) selectedOptions.push("Récupération");
 
-  const medicament = document.getElementById("medicament").value;
-  const symptomes = document.getElementById("symptomes").value;
+  const medicament = document.getElementById("medicament")?.value || "";
+  const symptomes = document.getElementById("symptomes")?.value || "";
 
   const message = encodeURIComponent(
-    `Nouvelle commande:\nNom: ${nom} ${prenom}\nTéléphone: ${tel}\nPharmacie: ${pharmacie}\nLieu livraison: ${lieu}\nOptions: ${selectedOptions.join(", ")}\nMédicament: ${medicament}\nSymptômes: ${symptomes}`
+    `Nouvelle commande:\nPharmacie: ${pharmacie}\nLieu livraison: ${lieu}\nOptions: ${selectedOptions.join(", ")}\nMédicament: ${medicament}\nSymptômes: ${symptomes}`
   );
 
-  // 👉 Ouvre directement WhatsApp avec le message
+  // 👉 Ouvre WhatsApp avec le message
   window.open(`https://wa.me/241074224966?text=${message}`, "_blank");
 });
-
 
 function toggleOptions() {
   const panel = document.getElementById("optionsPanel");
   panel.style.display = panel.style.display === "none" ? "block" : "none";
 }
+
+function retour() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = "/pharmass/index.html";
+  }
+}
+
+
+
+// // Pré-remplir la pharmacie depuis l'URL
+// window.addEventListener("DOMContentLoaded", () => {
+//   const params = new URLSearchParams(window.location.search);
+//   const pharmacie = params.get("pharmacie");
+
+//   if (pharmacie) {
+//     const pharmacieInput = document.getElementById("pharmacie");
+//     pharmacieInput.value = pharmacie;
+//     pharmacieInput.readOnly = true; // empêche la modification
+//   }
+// });
+
+
+
+// const optionNomMed = document.getElementById("optionNomMed");
+// const medicamentDiv = document.getElementById("medicamentDiv");
+// const optionConseil = document.getElementById("optionConseil");
+// const symptomesDiv = document.getElementById("symptomesDiv");
+
+// optionNomMed.addEventListener("change", () => {
+//   medicamentDiv.style.display = optionNomMed.checked ? "block" : "none";
+// });
+
+// optionConseil.addEventListener("change", () => {
+//   symptomesDiv.style.display = optionConseil.checked ? "block" : "none";
+// });
+
+// document.getElementById("callBtn").addEventListener("click", () => {
+//   window.location.href = "tel:+241074224966";
+// });
+// document.getElementById("orderForm").addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   const nom = document.getElementById("nom")?.value || "";
+//   const prenom = document.getElementById("prenom")?.value || "";
+//   const tel = document.getElementById("tel")?.value || "";
+//   const pharmacie = document.getElementById("pharmacie").value;
+//   const lieu = document.getElementById("lieu").value;
+
+//   const selectedOptions = [];
+//   if (optionNomMed.checked) selectedOptions.push("Nom du médicament");
+//   if (document.getElementById("optionOrdonnance").checked) selectedOptions.push("Ordonnance");
+//   if (optionConseil.checked) selectedOptions.push("Conseil");
+//   if (document.getElementById("optionRecupSelf").checked) selectedOptions.push("Récupération");
+
+//   const medicament = document.getElementById("medicament").value;
+//   const symptomes = document.getElementById("symptomes").value;
+
+//   const message = encodeURIComponent( `Nouvelle commande:\nPharmacie: ${pharmacie}\nLieu livraison: ${lieu}\nOptions: ${selectedOptions.join(", ")}\nMédicament: ${medicament}\nSymptômes: ${symptomes}` ); window.open(`https://wa.me/241074224966?text=${message}`, "_blank"); });
+
+// function toggleOptions() {
+//   const panel = document.getElementById("optionsPanel");
+//   panel.style.display = panel.style.display === "none" ? "block" : "none";
+// }
+
+// function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }
+
+
+
 
 
 // document.getElementById("whatsappBtn").addEventListener("click", () => {
@@ -96,4 +161,3 @@ function toggleOptions() {
 //   symptomesDiv.style.display = "none";
 // });
 // bouton retour
-function retour() { if (window.history.length > 1) { window.history.back(); } else { window.location.href = "/pharmass/index.html"; } }

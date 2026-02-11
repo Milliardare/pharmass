@@ -133,8 +133,8 @@ body {
 
 .links button {
   background: none;
-  border: 1px solid #bbb;
-  padding: 10px 20px;
+  border: 2px solid #00aeff7c;
+  padding: 20px 20px;
   border-radius: 14px;
   cursor: pointer;
 }

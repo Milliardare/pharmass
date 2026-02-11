@@ -250,9 +250,9 @@ function openProductModal(p) {
 
     <p id="totalPrice"><strong>Total :</strong> ${p.prix + RETRAIT_PRIX} FCFA</p>
 
-    <button onclick="orderWhatsapp('${p.nom}', ${p.prix}, '${p.description}')">
-      🛒 Commander via WhatsApp
-    </button>
+       <button onclick="orderWhatsapp('${p.nom}', ${p.prix}, '${p.description}')">
+       🛒 Commander via WhatsApp
+     </button>
   `;
 }
 
@@ -269,11 +269,10 @@ function setDeliveryMode(mode, prixProduit) {
 function closeModal() {
   productModal.style.display = "none";
 }
-
 /*************************************************
  * 8️⃣ COMMANDE WHATSAPP
  *************************************************/
-function orderWhatsapp(productName, prixProduit) {
+function orderWhatsapp(productName, prixProduit, description) {
   const livraison =
     selectedDeliveryMode === "livraison"
       ? LIVRAISON_PRIX
@@ -294,6 +293,32 @@ function orderWhatsapp(productName, prixProduit) {
 
   window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
 }
+
+
+// /*************************************************
+//  * 8️⃣ COMMANDE WHATSAPP
+//  *************************************************/
+// function orderWhatsapp(productName, prixProduit) {
+//   const livraison =
+//     selectedDeliveryMode === "livraison"
+//       ? LIVRAISON_PRIX
+//       : RETRAIT_PRIX;
+
+//   const total = prixProduit + livraison;
+
+//   const numero = "241074224966";
+//   const message = encodeURIComponent(
+//     `Bonjour, je souhaite commander :
+// - Produit : ${productName}
+// - Description : ${description}
+// - Prix : ${prixProduit} FCFA
+// - Mode : ${selectedDeliveryMode === "livraison" ? "Livraison à domicile" : "Retrait en pharmacie"}
+// - Frais : ${livraison} FCFA
+// - Total : ${total} FCFA`
+//   );
+
+//   window.open(`https://wa.me/${numero}?text=${message}`, "_blank");
+// }
 
 renderProducts();
 // bouton retour

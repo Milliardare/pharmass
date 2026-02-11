@@ -53,7 +53,7 @@ pharmacie partenaire Gabon
   <link rel="stylesheet" href="css/order.css">
 </head>
 
-<body> <!-- Bouton retour --> <button class="btn-retour" onclick="retour()"></button> <!-- En-tête --> <header> <h1>Formulaire de commande</h1> </header>
+<body> <!-- Bouton retour --> <button class="btn-retour" onclick="retour()"></button> <!-- En-tête --> <header> <h1> commande</h1> </header>
   <section class="live-orders">
     <h3>📢 Activité en direct ...</h3>
     <div class="live-chat" id="liveChat"></div>
@@ -61,11 +61,11 @@ pharmacie partenaire Gabon
    
  <!-- <section class="live-orders"> <h3>📢 Activité en direct</h3> <ul id="liveList"></ul> 
 </section>  -->
-<!-- Formulaire --> <main> <form id="orderForm"> <br> ✅ Livraison à domicile<br> ✅ Click & Collect en pharmacie partenaire <br>   ⚠️ contact direct avec des professionels de santé.</p> <label>Pharmacie sélectionnée</label> <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required> <label>Lieu de livraison (facultatif)</label>
+<!-- Formulaire --> <main> <form id="orderForm"> <br> ✅ Livraison à domicile<br> ✅ Click & Collect en pharmacie partenaire <br>   ⚠️ contact direct avec des professionels de santé( toutes les pharmacies partenaire ).</p> <label>Pharmacie sélectionnée</label> <input type="text" id="pharmacie" placeholder="Ex: Pharmacie de Libreville" required> <label>Lieu de livraison (facultatif)</label>
    <input type="text" id="lieu" placeholder="Ex: Quartier Avorbam"><h3>
-    <button type="button" class="accordion-btn" onclick="toggleOptions()">⚙️ Options de commande</button>
+    <!-- <button type="button" class="accordion-btn" onclick="toggleOptions()">⚙️ Options de commande</button>
   </h3>
-  <div id="optionsPanel" class="accordion-panel" style="display:none;">
+  <div id="optionsPanel" class="accordion-panel" style="display:none;"> -->
     <label><input type="checkbox" id="optionNomMed"> Nom du médicament</label>
     <div id="medicamentDiv" style="display:none;">
       <input type="text" id="medicament" placeholder="Nom du médicament">
@@ -73,12 +73,15 @@ pharmacie partenaire Gabon
   
     <label><input type="checkbox" id="optionOrdonnance"> Ordonnance (WhatsApp)</label>
     <label><input type="checkbox" id="optionConseil"> Conseil du pharmacien</label>
+    <label>Symptômes (facultatif)</label>
+     <textarea id="symptomes" placeholder="Décrire vos symptômes"></textarea>
+ 
     <label><input type="checkbox" id="optionRecupSelf"> Récupération en pharmacie</label>
   </div>
   
      <div class="buttons-row"> <button type="button" id="callBtn">📞 Appeler</button>
-       <button type="button" id="whatsappBtn">💬 WhatsApp</button> </div>
-       <button type="submit" id="submitBtn">✅ Confirmer la commande</button> </form> </main> 
+       <button type="button" id="whatsappBtn">💬 Cliquer en bas pour whatsapp</button> </div>
+       <button type="submit" id="submitBtn">✅ Confirmer la commande Whatsapp</button> </form> </main> 
  <!-- <script> const messages = [ "📦 Livraison confirmée (Owendo)", "📦 Livraison confirmée (Pharmacie Partenaire – Nzeng-Ayong)", "📦 Livraison confirmée (Port-Gentil)", "📦 Click & Collect validé (Sherco – Akanda)", "💬 Commande WhatsApp reçue (Libreville – Charbonnage)", "📞 Appel client pour médicaments (Akanda – Glass)", "💬 Click & Collect choisi (Owendo – Carrefour)", "📦 Livraison confirmée (Franceville – Mamboundou)" ]; let index = 0; setInterval(() => { const liveList = document.getElementById("liveList"); const newItem = document.createElement("li"); newItem.textContent = messages[index % messages.length]; liveList.insertBefore(newItem, liveList.firstChild); if (liveList.children.length > 6) { liveList.removeChild(liveList.lastChild); } index++; }, 6000); </script> -->
 
  <script>
